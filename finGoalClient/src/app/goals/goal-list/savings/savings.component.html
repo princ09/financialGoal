@@ -1,0 +1,23 @@
+    <table mat-table [dataSource]="savingList"  class="mat-elevation-z8" style="width: 100%" matSort>
+
+        <ng-container matColumnDef="savingName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Saving Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.savingName}} </td>
+        </ng-container>
+       <ng-container matColumnDef="savingValue">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+            <td mat-cell *matCellDef="let element"> {{element.savingValue}} </td>
+        </ng-container>
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+       
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+      <div class="example-button-row">
+        <button mat-raised-button style="margin-left: 5px;" *ngIf="selectedGoal.goalCompleted=='N'"
+        color="primary" type="submit" (click)="addSaving()">Add Saving</button>
+        <button mat-raised-button  style="margin-left: 5px;" (click)="onNoClick()">Close</button>
+    </div>

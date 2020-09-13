@@ -1,0 +1,26 @@
+<form [formGroup]="goalService.savingForm" class="normal-form" (submit)="addSaving()">
+    <div class="controlers-container">
+        <p>
+            <mat-form-field class="example-full-width" >
+                <mat-label>Saving Name</mat-label>
+                <input matInput placeholder="Ex. got bonus" formControlName="savingName" >
+                <mat-error>Invalid Saving Name</mat-error>
+            </mat-form-field>
+        </p>
+      
+        <p>
+            <mat-form-field class="example-full-width" >
+                <mat-label>Saving Value</mat-label>
+                <input matInput placeholder="Ex. 1000"  formControlName="savingValue" >
+                <mat-error>Invalid Saving Value</mat-error>
+            </mat-form-field>
+        </p>
+       
+        <div class="example-button-row">
+            <button mat-raised-button style="margin-bottom: 5px;" 
+            color="primary" type="submit" [disabled]="goalService.savingForm.invalid">Add Saving</button>
+            <button mat-raised-button   (click)="onNoClick()">No Thanks</button>
+        </div>
+    </div>
+    
+</form>

@@ -1,0 +1,39 @@
+<form [formGroup]="goalService.form" class="normal-form" (submit)="addGoal()">
+    <div class="controlers-container">
+        <p>
+            <mat-form-field class="example-full-width" style="width:50vw">
+                <mat-label>Goal Name</mat-label>
+                <input matInput placeholder="Ex. Purchase Dress" formControlName="goalName" >
+                <mat-error>Invalid Goal Name</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width" style="width:50vw">
+                <mat-label>Goal Description</mat-label>
+                <input matInput placeholder="Ex. Purchase before Sister's Birthday"  formControlName="goalDecs" >
+                <mat-error>Invalid Goal Description</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width" style="width:50vw">
+                <mat-label>Goal Target Price</mat-label>
+                <input matInput placeholder="Ex. 1000"  formControlName="goalTargetPrice" >
+                <mat-error>Invalid Target price</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width" style="width:50vw">
+                <mat-label>Completed</mat-label>
+                <input matInput value="N" readonly formControlName="goalCompleted">
+                <mat-error></mat-error>
+            </mat-form-field>
+        </p>
+        <div class="example-button-row">
+            <button mat-raised-button style="margin-left: 5px;" 
+            color="primary" type="submit" [disabled]="goalService.form.invalid">Add Goal</button>
+            <button mat-raised-button   style="margin-left: 5px;" color="warn" type="clear" (click)="onClear()">Reset</button>
+            <button mat-raised-button  style="margin-left: 5px;" (click)="onNoClick()">No Thanks</button>
+        </div>
+    </div>
+    
+</form>
